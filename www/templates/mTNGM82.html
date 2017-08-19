@@ -1,0 +1,41 @@
+<ion-view title="MẬT NGỮ M82" id="page1" ng-init="kiemtra=true" style="background-color:#E6F1F8;" class="display:none">
+	<ion-content padding="true" >
+		<div ng-if="kiemtra">
+			<form id="mTNGM82-form1" class="list " name="m82form">
+				<ion-toggle toggle-class="toggle-positive" id="mTNGM82-toggle1" ng-init="mn.typem82=true" ng-click="mn.typem82=!mn.typem82" name="mn.typem82" class=" m82toggle">5 vành khóa / 1 vành khóa</ion-toggle>
+			<div id="mTNGM82-button-bar1" class=" button-bar " ng-model="mn.selectedTab" ng-init="mn.selectedTab = 'tc'">
+				<button id="mTNGM82-button2"  ng-class="{'active':mn.selectedTab === 'cb'}" ng-click="mn.selectedTab = 'cb'" class=" button button-balanced  button-block">Cơ bản</button>
+				<button id="mTNGM82-button3"  ng-class="{'active':mn.selectedTab === 'nc'}" ng-click="mn.selectedTab = 'nc'" class=" button button-balanced  button-block ">Nâng cao</button>
+				<button id="mTNGM82-button4"  ng-class="{'active':mn.selectedTab === 'tc'}" ng-click="mn.selectedTab = 'tc'" class=" button button-balanced  button-block ">Tùy chọn</button>
+			</div>
+			<div id="mTNGM82-form2" class="list" ng-show="mn.selectedTab == 'tc'">
+					<label class="item item-input item-stacked-label">
+						<span class="input-label">Nội dung bản điện</span>
+						<textarea ng-init="mn.Textm82 = '';"ng-model="mn.Textm82" name="Textm82" placeholder="Nhập bản điện vào đây !! ^.^" rows="14"></textarea>
+					</label>
+			</div>
+			<a id="mTNGM82-button6" style="font-size:20px;" ng-click="thuchanhmadien(mn.Textm82);kiemtra=false;" class=" button button-positive  button-block ">Bắt đầu</a>
+				</form>
+		</div>
+		<div ng-if="kiemtra==false">
+			<div ng-repeat="thutu in range" style=" margin: 10px">
+				<div class="row">
+					<div class="col assertive">{{ro[thutu*4+0]}}</div>
+					<div class="col assertive">{{ro[thutu*4+1]}}</div>
+					<div class="col assertive">{{ro[thutu*4+2]}}</div>
+					<div class="col assertive">{{ro[thutu*4+3]}}</div>
+				</div>
+				<div class="button-bar bar-calm">
+					<a class="button balanced">{{mat[thutu*4+0]}}</a>
+					<a class="button balanced">{{mat[thutu*4+1]}}</a>
+					<a class="button balanced">{{mat[thutu*4+2]}}</a>
+					<a class="button balanced">{{mat[thutu*4+3]}}</a>
+				</div>
+			</div>	
+		</div>
+    </ion-content> 
+	<div class="bar bar-footer bar-balanced">
+  <button ng-if="kiemtra==false" ng-click="checkback();kiemtra=true;" class="button button-icon icon ion-ios-undo"></button>
+	<div class="title" ng-bind="thongbao"></div>
+	</div>
+</ion-view>
