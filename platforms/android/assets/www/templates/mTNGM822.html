@@ -1,0 +1,18 @@
+<ion-view title="MẬT NGỮ M82" id="page2" style="background-color:#F7E4AF;">
+    <ion-content padding="true" class="has-header">
+		<div ng-repeat="thutu in range" style=" margin: 10px">
+			<div class="row">
+				<div class="col assertive">{{ro[thutu*5+0]}}</div>
+				<div class="col assertive">{{ro[thutu*5+1]}}</div>
+				<div class="col assertive">{{ro[thutu*5+2]}}</div>
+				<div class="col assertive">{{ro[thutu*5+3]}}</div>
+			</div>
+			<div class="button-bar bar-calm">
+				<a class="button balanced">{{mat[thutu*5+0]}}</a>
+				<a class="button balanced">{{mat[thutu*5+1]}}</a>
+				<a class="button balanced">{{mat[thutu*5+2]}}</a>
+				<a class="button balanced">{{mat[thutu*5+3]}}</a>
+			</div>
+		</div>
+	</ion-content>	
+</ion-view>
